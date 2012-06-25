@@ -1,0 +1,17 @@
+=pod 
+
+=encoding utf8
+
+=head1 NOME
+
+Boas práticas
+
+=head1 SINOPSE
+
+Me ajudem a escrever a estrutura das boas práticas, por favor.
+
+=head1 AUTORES
+
+
+=cut
+
