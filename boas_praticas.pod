@@ -10,8 +10,18 @@ Boas práticas
 
 Me ajudem a escrever a estrutura das boas práticas, por favor.
 
+Escreva Perl Moderno
+Use uma framework moderna (catalyst,mojolicious,dancer)
+Use um sistema de controle de versões (git)
+Faça a coisa mais simples que possa funcionar
+Use testes para ver se sua idéia funciona
+Disponibilize o código fonte com uma licença livre
+Participe da comunidade (listas de discussão, irc)
+
 =head1 AUTORES
 
+Solli Honorio
+Nelson Ferraz
 
 =cut
 
