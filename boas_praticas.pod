@@ -10,11 +10,37 @@ Boas práticas
 
 Me ajudem a escrever a estrutura das boas práticas, por favor.
 
+=head1 Fundamentos
+
+Apresentar os fundamentos necessário para qualquer um fazer o mínimo necessário. Não necessariamente entrar nos
+detalhes, mas talvez apontar documentos no wikipedia sobre este fundamentos.
+
+=head2 Protocolo HTTP
+
+Entenda o HTTP e coisas como GET, POST, sessão, cookies, e o que significa o que é 'stateless'.
+
+=head2 Padrão MVC
+
 =head2 Escreva Perl Moderno
 
-=head2 Use uma framework moderna (catalyst,mojolicious,dancer)
+=head1 Segurança
+
+=head2 OWASP
+
+=head2 Nunca confie nas entradas do usuário
+
+=head1 Bug fixing
+
+Entenda que você gasta 20% do seu tempo codificando e 80% realizando manutenção, so codifique 'bonito'.
+
+=head2 Bom sistema de log e erro
 
 =head2 Use um sistema de controle de versões (git)
+
+
+=head1 Contribuições não classificada ainda
+
+=head2 Use uma framework moderna (catalyst,mojolicious,dancer)
 
 =head2 Faça a coisa mais simples que possa funcionar
 
@@ -27,6 +53,7 @@ Me ajudem a escrever a estrutura das boas práticas, por favor.
 =head1 AUTORES
 
 Solli Honorio
+
 Nelson Ferraz
 
 =cut
