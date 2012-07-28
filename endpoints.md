@@ -46,3 +46,6 @@ Para construir este site, e demonstrar mais coisas do 12factor, também precisar
 TODO:
     ?question? vamos deixar os metodos do /api/ disponiveis para acesso direto ou faremos um layer pela aplicação?
     adicionar parte de login/senha do admin e escrever as URLs
+
+
+Template do site eu pensei nesse daqui: http://www.freewebsitetemplates.com/preview/clothesfashion/ é simples, da pra por uns cafes no lugar da mulher, e na interface do admin usar o twitter.github.com/bootstrap/ mesmo
