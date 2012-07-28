@@ -24,9 +24,25 @@ Para construir este site, e demonstrar mais coisas do 12factor, também precisar
 
 :METHOD | URI                  | Params                |Description|Return|
 |------:|----------------------|-----------------------|-----------|------|
-:GET    |/produtos             |  -   | lista dos produtos|{ produtos : [ { nome: cafe123, id: 3, preco: 5.55 } ], message: ok  }|
-:GET    |/produtos/<id>        | - | retorna um produto | { produto : { nome: cafe123, id: 3, preco: 5.55 }, comentarios: [ { user_id: 123, mensagem: gostei do sabor bla bla } ], message: ok  }|
+|GET    |/api/produtos             |  -   | lista dos produtos|{ produtos : [ { nome: cafe123, id: 3, preco: 5.55 } ], message: ok  }|
+|GET    |/api/produtos/<id>        | - | retorna um produto | { produto : { nome: cafe123, id: 3, preco: 5.55 }, comentarios: [ { user_id: 123, mensagem: gostei do sabor bla bla } ], message: ok  }|
+|POST   |/api/efetuar_pagamento    | { codigo_promocional: '123', compra_id: 123  } | efetua a compra, add queue e-mail | { message: ok } |
+|POST   |/api/clientes/novo        | { email: 'rento.cron@xpto.com', nome: 'a name', senha: fuba } | ... | { message: ok } |
+|POST   |/api/clientes/login       | { email: 'rento.cron@xpto.com', senha: fuba } | ... | { message: ok } |
+|POST   |/api/produtos             | { nome: 'kafe gostoso', preco: 3.20, loja: 1 }, <Imagem> | cadastra o produto | { message: ok } |
 
 
 # URL Sitemap
 
+:METHOD | URI                  | CONTENT               |Description|
+|------:|----------------------|-----------------------|-----------|
+|GET    | / | - | homepage, consulta os produtos, cria session |
+|GET    | /logout      | - | destroi a sessao, rediciona para home|
+|POST   | /login | cliente.email, cliente.senha | faz o login e atualiza session |
+|GET    | /carrinho | | mostra os itens no carrinho com a opcao de digitar o codigo promocional e confirmar o pagamento |
+
+
+
+TODO:
+    ?question? vamos deixar os metodos do /api/ disponiveis para acesso direto ou faremos um layer pela aplicação?
+    adicionar parte de login/senha do admin e escrever as URLs
