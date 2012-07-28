@@ -4,57 +4,69 @@
 
 =head1 NOME
 
-Boas práticas
+Boas práticas para o desenvolmento
 
 =head1 SINOPSE
 
-Me ajudem a escrever a estrutura das boas práticas, por favor.
+Atualmente os softwares tem sido preferêncialmente fornecido como serviço denominado B<web apps>, prometendo escalabilidade.
 
-=head1 Fundamentos
+=head1 REGRAS
 
-Apresentar os fundamentos necessário para qualquer um fazer o mínimo necessário. Não necessariamente entrar nos
-detalhes, mas talvez apontar documentos no wikipedia sobre este fundamentos.
+=head2 Codebase
 
-=head2 Protocolo HTTP
+I<One codebase tracked in revision control, many deploys>
 
-Entenda o HTTP e coisas como GET, POST, sessão, cookies, e o que significa o que é 'stateless'.
+=head2 Dependencies
 
-=head2 Padrão MVC
+I<Explicitly declare and isolate dependencies>
 
-=head2 Escreva Perl Moderno
+=head2 Config
 
-=head1 Segurança
+I<Store config in the environment>
 
-=head2 OWASP
+=head2 Backing Services
 
-=head2 Nunca confie nas entradas do usuário
+I<Treat backing services as attached resources>
 
-=head1 Bug fixing
+=head2 Build, release, run
 
-Entenda que você gasta 20% do seu tempo codificando e 80% realizando manutenção, so codifique 'bonito'.
+I<Strictly separate build and run stages>
 
-=head2 Bom sistema de log e erro
+=head2 Processes
 
-=head2 Use um sistema de controle de versões (git)
+I<Execute the app as one or more stateless processes>
 
+=head2 Port binding
 
-=head1 Contribuições não classificada ainda
+I<Export services via port binding>
 
-=head2 Use uma framework moderna (catalyst,mojolicious,dancer)
+=head2 Concurrency
 
-=head2 Faça a coisa mais simples que possa funcionar
+I<Scale out via the process model>
 
-=head2 Use testes para ver se sua idéia funciona
+=head2 Disposability
 
-=head2 Disponibilize o código fonte com uma licença livre
+I<Maximize robustness with fast startup and graceful shutdown>
 
-=head2 Participe da comunidade (listas de discussão, irc)
+=head2 Dev/prod parity
+
+I<Keep development, staging, and production as similar as possible>
+
+=head2 Logs
+
+I<Treat logs as event streams>
+
+=head2 Admin processes
+
+I<Run admin/management tasks as one-off processes>
+
+=head1 REFERÊNCIA
+
+http://www.12factor.net/
 
 =head1 AUTORES
 
 Solli Honorio
-
-Nelson Ferraz
 
 =cut
 
