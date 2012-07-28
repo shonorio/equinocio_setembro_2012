@@ -22,10 +22,10 @@ Para construir este site, e demonstrar mais coisas do 12factor, também precisar
 
 # Endpoints API
 
-:METHOD| URI | Params | Description | Return |
-
-:GET | /produtos | - | lista dos produtos | { produtos : [ { nome: cafe123, id: 3, preco: 5.55 } ], message: ok  }|
-:GET | /produtos/<id> | - | retorna um produto | { produto : { nome: cafe123, id: 3, preco: 5.55 }, comentarios: [ { user_id: 123, mensagem: gostei do sabor bla bla } ], message: ok  }|
+:METHOD | URI                  | Params                |Description|Return|
+|------:|----------------------|-----------------------|-----------|------|
+:GET    |/produtos             |  -   | lista dos produtos|{ produtos : [ { nome: cafe123, id: 3, preco: 5.55 } ], message: ok  }|
+:GET    |/produtos/<id>        | - | retorna um produto | { produto : { nome: cafe123, id: 3, preco: 5.55 }, comentarios: [ { user_id: 123, mensagem: gostei do sabor bla bla } ], message: ok  }|
 
 
 # URL Sitemap
