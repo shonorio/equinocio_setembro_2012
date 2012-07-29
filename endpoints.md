@@ -44,8 +44,8 @@ Para construir este site, e demonstrar mais coisas do 12factor, também precisar
 |DELETE | /carrinho/produto/<id> | - | remove o produto no carrinho |
 |PUT    | /carrinho/produto/<id> | { qtde: nova_qtde}  | atualiza a quantidade do produto no carrinho|
 |GET    | /carrinho/produto/<id> | - | na verdade, nao precisa! pois o GET /carrinho retornara todos os produtos para evitar querys...|
-|GET    | /cliente/recurar_senha | - | pergunta e-mail |
-|POST   | /cliente/recurar_senha | {email:x} | envia email com chave para resetar|
+|GET    | /cliente/recuperar_senha | - | pergunta e-mail |
+|POST   | /cliente/recuperar_senha | {email:x} | envia email com chave para resetar|
 |GET    | /cliente/resetar_senha | ?email=xpto&chave=<sha1> | confere a chave, exibe formulario|
 |POST   | /cliente/resetar_senha | {email=xpto, chave=<sha1>, senha1, senha2} | ... |
 
