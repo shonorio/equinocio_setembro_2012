@@ -58,12 +58,8 @@ Segue uma proposta pra o contrato da nossa API REST:
 <td></td>
 <td></td>
 <td></td>
-<td></td>
 </tr>
 <tr>
-<td>
-.
-</td>
 <td>recurso</td>
 <td>url</td>
 <td>verbo</td>
@@ -74,9 +70,6 @@ Segue uma proposta pra o contrato da nossa API REST:
 <td>requer autenticacao, autorizacao?</td>
 </tr>
 <tr>
-<td>
-.
-</td>
 <td>Produtos</td>
 <td>/produto</td>
 <td>get</td>
@@ -87,9 +80,6 @@ Segue uma proposta pra o contrato da nossa API REST:
 <td>amarrar autenticacao em openid ou oauth,<br />autorizar apenas os pedidos do usuario</td>
 </tr>
 <tr>
-<td>
-.
-</td>
 <td></td>
 <td></td>
 <td></td>
@@ -100,9 +90,6 @@ Segue uma proposta pra o contrato da nossa API REST:
 <td></td>
 </tr>
 <tr>
-<td>
-.
-</td>
 <td>Um produto</td>
 <td>/produto/\{UUID\_produto\}</td>
 <td>get</td>
@@ -113,9 +100,6 @@ Segue uma proposta pra o contrato da nossa API REST:
 <td>não</td>
 </tr>
 <tr>
-<td>
-.
-</td>
 <td>Tamanhos de um produto</td>
 <td>/produto/\{UUID\_produto\}/tamanhos</td>
 <td>get</td>
@@ -126,9 +110,6 @@ Segue uma proposta pra o contrato da nossa API REST:
 <td>não</td>
 </tr>
 <tr>
-<td>
-.
-</td>
 <td>Opcionais de um produto</td>
 <td>/produto/\{UUID\_produto\}/opcionais</td>
 <td>get</td>
@@ -139,9 +120,6 @@ Segue uma proposta pra o contrato da nossa API REST:
 <td>não</td>
 </tr>
 <tr>
-<td>
-.
-</td>
 <td>Opcionais de um produto</td>
 <td>/produto/\{UUID\_produto\}/opcionais/\{UUID\_opcional\}</td>
 <td>get</td>
@@ -152,9 +130,6 @@ Segue uma proposta pra o contrato da nossa API REST:
 <td>não</td>
 </tr>
 <tr>
-<td>
-.
-</td>
 <td></td>
 <td></td>
 <td></td>
@@ -165,9 +140,6 @@ Segue uma proposta pra o contrato da nossa API REST:
 <td></td>
 </tr>
 <tr>
-<td>
-.
-</td>
 <td>Pedidos</td>
 <td>/pedido</td>
 <td>get</td>
@@ -178,9 +150,6 @@ Segue uma proposta pra o contrato da nossa API REST:
 <td>sim</td>
 </tr>
 <tr>
-<td>
-.
-</td>
 <td>Pedidos</td>
 <td>/pedido</td>
 <td>post</td>
@@ -191,9 +160,6 @@ Segue uma proposta pra o contrato da nossa API REST:
 <td>sim</td>
 </tr>
 <tr>
-<td>
-.
-</td>
 <td></td>
 <td></td>
 <td></td>
@@ -204,9 +170,6 @@ Segue uma proposta pra o contrato da nossa API REST:
 <td></td>
 </tr>
 <tr>
-<td>
-.
-</td>
 <td>Um pedido</td>
 <td>/pedido/\{UUID\_pedido\}</td>
 <td>get</td>
@@ -217,9 +180,6 @@ Segue uma proposta pra o contrato da nossa API REST:
 <td>sim</td>
 </tr>
 <tr>
-<td>
-.
-</td>
 <td>Um pedido</td>
 <td>/pedido/\{UUID\_pedido\}</td>
 <td>put</td>
@@ -230,9 +190,6 @@ Segue uma proposta pra o contrato da nossa API REST:
 <td>sim</td>
 </tr>
 <tr>
-<td>
-.
-</td>
 <td>Um pedido</td>
 <td>/pedido/\{UUID\_pedido\}</td>
 <td>delete</td>
@@ -243,9 +200,6 @@ Segue uma proposta pra o contrato da nossa API REST:
 <td>sim</td>
 </tr>
 <tr>
-<td>
-.
-</td>
 <td></td>
 <td></td>
 <td></td>
@@ -256,9 +210,6 @@ Segue uma proposta pra o contrato da nossa API REST:
 <td></td>
 </tr>
 <tr>
-<td>
-.
-</td>
 <td>Itens em um pedido</td>
 <td>/pedido/\{UUID\_pedido\}/item</td>
 <td>get</td>
@@ -269,9 +220,6 @@ Segue uma proposta pra o contrato da nossa API REST:
 <td>sim</td>
 </tr>
 <tr>
-<td>
-.
-</td>
 <td>Itens em um pedido</td>
 <td>/pedido/\{UUID\_pedido\}/item</td>
 <td>post</td>
@@ -282,9 +230,6 @@ Segue uma proposta pra o contrato da nossa API REST:
 <td>sim</td>
 </tr>
 <tr>
-<td>
-.
-</td>
 <td>Itens em um pedido</td>
 <td>/pedido/\{UUID\_pedido\}/item</td>
 <td>delete</td>
@@ -295,9 +240,6 @@ Segue uma proposta pra o contrato da nossa API REST:
 <td>sim</td>
 </tr>
 <tr>
-<td>
-.
-</td>
 <td>Um item em um pedido</td>
 <td>/pedido/\{UUID\_pedido\}/item/\{UUID\_item\}</td>
 <td>get</td>
@@ -308,9 +250,6 @@ Segue uma proposta pra o contrato da nossa API REST:
 <td>sim</td>
 </tr>
 <tr>
-<td>
-.
-</td>
 <td>Um item em um pedido</td>
 <td>/pedido/\{UUID\_pedido\}/item/\{UUID\_item\}</td>
 <td>put</td>
@@ -321,9 +260,6 @@ Segue uma proposta pra o contrato da nossa API REST:
 <td>sim</td>
 </tr>
 <tr>
-<td>
-.
-</td>
 <td>Um item em um pedido</td>
 <td>/pedido/\{UUID\_pedido\}/item/\{UUID\_item\}</td>
 <td>delete</td>
@@ -334,9 +270,6 @@ Segue uma proposta pra o contrato da nossa API REST:
 <td>sim</td>
 </tr>
 <tr>
-<td>
-.
-</td>
 <td></td>
 <td></td>
 <td></td>
@@ -347,9 +280,6 @@ Segue uma proposta pra o contrato da nossa API REST:
 <td></td>
 </tr>
 <tr>
-<td>
-.
-</td>
 <td>As cobranças</td>
 <td>/cobranca</td>
 <td>get</td>
@@ -360,9 +290,6 @@ Segue uma proposta pra o contrato da nossa API REST:
 <td>sim</td>
 </tr>
 <tr>
-<td>
-.
-</td>
 <td>Uma cobranca</td>
 <td>/cobranca/\{UUID\_cobranca\}</td>
 <td>get</td>
@@ -373,9 +300,6 @@ Segue uma proposta pra o contrato da nossa API REST:
 <td>sim</td>
 </tr>
 <tr>
-<td>
-.
-</td>
 <td></td>
 <td></td>
 <td></td>
@@ -386,9 +310,6 @@ Segue uma proposta pra o contrato da nossa API REST:
 <td></td>
 </tr>
 <tr>
-<td>
-.
-</td>
 <td>Pagamentos</td>
 <td>/pagamento</td>
 <td>get</td>
@@ -399,9 +320,6 @@ Segue uma proposta pra o contrato da nossa API REST:
 <td>sim</td>
 </tr>
 <tr>
-<td>
-.
-</td>
 <td>Pagamentos</td>
 <td>/pagamento</td>
 <td>post</td>
@@ -412,9 +330,6 @@ Segue uma proposta pra o contrato da nossa API REST:
 <td>sim</td>
 </tr>
 <tr>
-<td>
-.
-</td>
 <td>Um pagamento</td>
 <td>/pagamento/\{UUID\_pagamento\}</td>
 <td>get</td>
@@ -425,9 +340,6 @@ Segue uma proposta pra o contrato da nossa API REST:
 <td>sim</td>
 </tr>
 <tr>
-<td>
-.
-</td>
 <td>Um pagamento</td>
 <td>/pagamento/\{UUID\_pagamento\}</td>
 <td>put</td>
@@ -438,9 +350,6 @@ Segue uma proposta pra o contrato da nossa API REST:
 <td>sim</td>
 </tr>
 <tr>
-<td>
-.
-</td>
 <td>Um pagamento</td>
 <td>/pagamento/\{UUID\_pagamento\}</td>
 <td>delete</td>
@@ -451,9 +360,6 @@ Segue uma proposta pra o contrato da nossa API REST:
 <td>sim</td>
 </tr>
 <tr>
-<td>
-.
-</td>
 <td></td>
 <td></td>
 <td></td>
@@ -464,9 +370,6 @@ Segue uma proposta pra o contrato da nossa API REST:
 <td></td>
 </tr>
 <tr>
-<td>
-.
-</td>
 <td>Recibos</td>
 <td>/recibo</td>
 <td>get</td>
@@ -477,9 +380,6 @@ Segue uma proposta pra o contrato da nossa API REST:
 <td>sim</td>
 </tr>
 <tr>
-<td>
-.
-</td>
 <td>Um recibo</td>
 <td>/recibo/\{UUID\_recibo\}</td>
 <td>get</td>
@@ -488,19 +388,6 @@ Segue uma proposta pra o contrato da nossa API REST:
 <td></td>
 <td>e-tag ou last-modified</td>
 <td>sim</td>
-</tr>
-<tr>
-<td>
-.
-</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
 </tr>
 </table>
 
