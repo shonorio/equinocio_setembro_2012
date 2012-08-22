@@ -47,7 +47,462 @@ Onde os links em vermelho são transições "nos bastidores", e os outros links 
 
 Segue uma proposta pra o contrato da nossa API REST:
 
-<table dir="ltr" border="0" cellpadding="0" cellspacing="0" class="tblGenFixed" id="tblMain"><tbody><tr class="rShim"><td class="rShim" ></td><td class="rShim" ></td><td class="rShim" ></td><td class="rShim" ></td><td class="rShim" ></td><td class="rShim" ></td><td class="rShim" ></td><td class="rShim" ></td><td class="rShim" ></td></tr><tr dir="ltr"><td class="hd"><p >.</p></td><td dir="ltr" class="s0">recurso</td><td dir="ltr" class="s1">url</td><td dir="ltr" class="s1">verbo</td><td dir="ltr" class="s1">semântica</td><td dir="ltr" class="s1">links ou recursos embutidos na resposta</td><td dir="ltr" class="s1">notas</td><td dir="ltr" class="s1">re: cache</td><td dir="ltr" class="s1">requer autenticacao, autorizacao?</td></tr><tr dir="ltr"><td class="hd"><p >.</p></td><td dir="ltr" class="s2">Produtos</td><td dir="ltr" class="s3">/produto</td><td dir="ltr" class="s4">get</td><td dir="ltr" class="s3">a lista de produtos</td><td class="s5"></td><td class="s5"></td><td class="s5"></td><td dir="ltr" class="s3">amarrar autenticacao em openid ou oauth,<br>autorizar apenas os pedidos do usuario</td></tr><tr dir="ltr"><td class="hd"><p >.</p></td><td class="s6"></td><td class="s7"></td><td class="s7"></td><td class="s7"></td><td class="s7"></td><td class="s7"></td><td class="s7"></td><td class="s7"></td></tr><tr dir="ltr"><td class="hd"><p >.</p></td><td dir="ltr" class="s2">Um produto</td><td dir="ltr" class="s3">/produto/{UUID_produto}</td><td dir="ltr" class="s4">get</td><td dir="ltr" class="s3">um produto</td><td dir="ltr" class="s3">* opcionais<br>* tamanhos</td><td class="s5"></td><td dir="ltr" class="s3">e-tag relativo ao conjunto: produto, opcionais e tamanhos. ou last-modified</td><td dir="ltr" class="s3">não</td></tr><tr dir="ltr"><td class="hd"><p >.</p></td><td dir="ltr" class="s2">Tamanhos de um produto</td><td dir="ltr" class="s3">/produto/{UUID_produto}/tamanhos</td><td dir="ltr" class="s4">get</td><td dir="ltr" class="s3">os tamanhos em que um produto está disponível</td><td dir="ltr" class="s3">* produto</td><td class="s5"></td><td dir="ltr" class="s3">e-tag relativo ao conjunto: produto, opcionais e tamanhos. ou last-modified</td><td dir="ltr" class="s3">não</td></tr><tr dir="ltr"><td class="hd"><p >.</p></td><td dir="ltr" class="s2">Opcionais de um produto</td><td dir="ltr" class="s3">/produto/{UUID_produto}/opcionais</td><td dir="ltr" class="s4">get</td><td dir="ltr" class="s3">Os opcionais disponíveis para um produto</td><td dir="ltr" class="s3">* produto</td><td class="s5"></td><td dir="ltr" class="s3">e-tag relativo ao conjunto: produto, opcionais e tamanhos. ou last-modified</td><td dir="ltr" class="s3">não</td></tr><tr dir="ltr"><td class="hd"><p >.</p></td><td dir="ltr" class="s2">Opcionais de um produto</td><td dir="ltr" class="s3">/produto/{UUID_produto}/opcionais/{UUID_opcional}</td><td dir="ltr" class="s4">get</td><td dir="ltr" class="s3">Um opcional disponível para um produto</td><td dir="ltr" class="s3">* produto</td><td class="s5"></td><td dir="ltr" class="s3">e-tag relativo ao conjunto: produto, opcionais e tamanhos. ou last-modified</td><td dir="ltr" class="s3">não</td></tr><tr dir="ltr"><td class="hd"><p >.</p></td><td class="s6"></td><td class="s7"></td><td class="s7"></td><td class="s7"></td><td class="s7"></td><td class="s7"></td><td class="s7"></td><td class="s7"></td></tr><tr dir="ltr"><td class="hd"><p >.</p></td><td dir="ltr" class="s2">Pedidos</td><td dir="ltr" class="s3">/pedido</td><td dir="ltr" class="s4">get</td><td dir="ltr" class="s3">retorna os pedidos</td><td class="s5"></td><td class="s5"></td><td class="s5"></td><td dir="ltr" class="s3">sim</td></tr><tr dir="ltr"><td class="hd"><p >.</p></td><td dir="ltr" class="s2">Pedidos</td><td dir="ltr" class="s3">/pedido</td><td dir="ltr" class="s8">post</td><td dir="ltr" class="s3">cria um novo pedido, UUID gerado e informado pelo servidor, put é recomendado apenas se o cliente sempre puder gerar o UUID, não é o caso</td><td class="s5"></td><td dir="ltr" class="s3">retorna no header Location: o endereço do pedido criado</td><td class="s5"></td><td dir="ltr" class="s3">sim</td></tr><tr dir="ltr"><td class="hd"><p >.</p></td><td class="s6"></td><td class="s7"></td><td class="s7"></td><td class="s7"></td><td class="s7"></td><td class="s7"></td><td class="s7"></td><td class="s7"></td></tr><tr dir="ltr"><td class="hd"><p >.</p></td><td dir="ltr" class="s2">Um pedido</td><td dir="ltr" class="s3">/pedido/{UUID_pedido}</td><td dir="ltr" class="s4">get</td><td dir="ltr" class="s3">retorna um pedido</td><td dir="ltr" class="s3">* Itens de um pedido<br>* a cobrança<br>* o recibo ou pagamento</td><td class="s5"></td><td dir="ltr" class="s3">usar e-tag ou last-modified</td><td dir="ltr" class="s3">sim</td></tr><tr dir="ltr"><td class="hd"><p >.</p></td><td dir="ltr" class="s2">Um pedido</td><td dir="ltr" class="s3">/pedido/{UUID_pedido}</td><td dir="ltr" class="s9">put</td><td dir="ltr" class="s3">modifica um pedido</td><td dir="ltr" class="s3">* Itens de um pedido<br>* a cobrança<br>* o recibo ou pagamento</td><td dir="ltr" class="s3">a representação completa do pedido é enviada e recebida</td><td dir="ltr" class="s3">usar e-tag ou last-modified</td><td dir="ltr" class="s3">sim</td></tr><tr dir="ltr"><td class="hd"><p >.</p></td><td dir="ltr" class="s2">Um pedido</td><td dir="ltr" class="s3">/pedido/{UUID_pedido}</td><td dir="ltr" class="s10">delete</td><td dir="ltr" class="s3">apaga um pedido</td><td class="s5"></td><td class="s5"></td><td class="s5"></td><td dir="ltr" class="s3">sim</td></tr><tr dir="ltr"><td class="hd"><p >.</p></td><td class="s11"></td><td class="s7"></td><td class="s7"></td><td class="s7"></td><td class="s7"></td><td class="s7"></td><td class="s7"></td><td class="s7"></td></tr><tr dir="ltr"><td class="hd"><p >.</p></td><td dir="ltr" class="s2">Itens em um pedido</td><td dir="ltr" class="s3">/pedido/{UUID_pedido}/item</td><td dir="ltr" class="s4">get</td><td dir="ltr" class="s3">retorna os itens em um pedido</td><td dir="ltr" class="s3">lista de itens em um pedido</td><td class="s5"></td><td dir="ltr" class="s3">usar e-tag ou last-modified</td><td dir="ltr" class="s3">sim</td></tr><tr dir="ltr"><td class="hd"><p >.</p></td><td dir="ltr" class="s2">Itens em um pedido</td><td dir="ltr" class="s3">/pedido/{UUID_pedido}/item</td><td dir="ltr" class="s8">post</td><td dir="ltr" class="s3">cria um novo item em um pedido</td><td class="s5"></td><td dir="ltr" class="s3">retorna no header Location: o endereço do item criado</td><td class="s5"></td><td dir="ltr" class="s3">sim</td></tr><tr dir="ltr"><td class="hd"><p >.</p></td><td dir="ltr" class="s2">Itens em um pedido</td><td dir="ltr" class="s3">/pedido/{UUID_pedido}/item</td><td dir="ltr" class="s10">delete</td><td dir="ltr" class="s3">remove todos os itens em um pedido</td><td class="s5"></td><td class="s5"></td><td class="s5"></td><td dir="ltr" class="s3">sim</td></tr><tr dir="ltr"><td class="hd"><p >.</p></td><td dir="ltr" class="s2">Um item em um pedido</td><td dir="ltr" class="s3">/pedido/{UUID_pedido}/item/{UUID_item}</td><td dir="ltr" class="s4">get</td><td dir="ltr" class="s3">retorna um item em um pedido</td><td dir="ltr" class="s3">* o pedido<br>* o produto<br>* o tamanho<br>* os opcionais</td><td dir="ltr" class="s3">a representação completa do pedido é enviada e recebida</td><td class="s5"></td><td dir="ltr" class="s3">sim</td></tr><tr dir="ltr"><td class="hd"><p >.</p></td><td dir="ltr" class="s2">Um item em um pedido</td><td dir="ltr" class="s3">/pedido/{UUID_pedido}/item/{UUID_item}</td><td dir="ltr" class="s9">put</td><td dir="ltr" class="s3">modifica um item em um pedido</td><td dir="ltr" class="s3">* o pedido<br>* o produto<br>* o tamanho<br>* os opcionais</td><td dir="ltr" class="s3">a representação completa do pedido é enviada e recebida</td><td class="s5"></td><td dir="ltr" class="s3">sim</td></tr><tr dir="ltr"><td class="hd"><p >.</p></td><td dir="ltr" class="s2">Um item em um pedido</td><td dir="ltr" class="s3">/pedido/{UUID_pedido}/item/{UUID_item}</td><td dir="ltr" class="s10">delete</td><td dir="ltr" class="s3">remove um item de um pedido</td><td class="s5"></td><td class="s5"></td><td class="s5"></td><td dir="ltr" class="s3">sim</td></tr><tr dir="ltr"><td class="hd"><p >.</p></td><td class="s11"></td><td class="s7"></td><td class="s7"></td><td class="s7"></td><td class="s7"></td><td class="s7"></td><td class="s7"></td><td class="s7"></td></tr><tr dir="ltr"><td class="hd"><p >.</p></td><td dir="ltr" class="s2">As cobranças</td><td dir="ltr" class="s3">/cobranca</td><td dir="ltr" class="s4">get</td><td dir="ltr" class="s3">retorna a lista de cobranças</td><td dir="ltr" class="s3">* pagamento ou recibo<br>* pedido</td><td class="s5"></td><td dir="ltr" class="s3">sim, presumindo: imutáveis, sempre válidas.</td><td dir="ltr" class="s3">sim</td></tr><tr dir="ltr"><td class="hd"><p >.</p></td><td dir="ltr" class="s2">Uma cobranca</td><td dir="ltr" class="s3">/cobranca/{UUID_cobranca}</td><td dir="ltr" class="s4">get</td><td dir="ltr" class="s3">retorna uma cobrança</td><td class="s5"></td><td class="s5"></td><td dir="ltr" class="s3">sim, presumindo: imutáveis, sempre válidas.</td><td dir="ltr" class="s3">sim</td></tr><tr dir="ltr"><td class="hd"><p >.</p></td><td class="s11"></td><td class="s7"></td><td class="s7"></td><td class="s7"></td><td class="s7"></td><td class="s7"></td><td class="s7"></td><td class="s7"></td></tr><tr dir="ltr"><td class="hd"><p >.</p></td><td dir="ltr" class="s2">Pagamentos</td><td dir="ltr" class="s3">/pagamento</td><td dir="ltr" class="s4">get</td><td dir="ltr" class="s3">retorna os pagamentos do usuário</td><td class="s5"></td><td class="s5"></td><td class="s5"></td><td dir="ltr" class="s3">sim</td></tr><tr dir="ltr"><td class="hd"><p >.</p></td><td dir="ltr" class="s2">Pagamentos</td><td dir="ltr" class="s3">/pagamento</td><td dir="ltr" class="s8">post</td><td dir="ltr" class="s3">cria um pagamento</td><td dir="ltr" class="s3">* a cobrança</td><td dir="ltr" class="s3">decidir: se o pagamento não for aceito: <br>* vamos retorna um status de erro agora; ou<br>* vamos criar o recurso mesmo assim, mas sinalizar isso para o usuário através de alguma propriedade?</td><td class="s5"></td><td dir="ltr" class="s3">sim</td></tr><tr dir="ltr"><td class="hd"><p >.</p></td><td dir="ltr" class="s2">Um pagamento</td><td dir="ltr" class="s3">/pagamento/{UUID_pagamento}</td><td dir="ltr" class="s4">get</td><td dir="ltr" class="s3">retorna um pagamento</td><td dir="ltr" class="s3">* a cobrança<br>* o recibo, se houver</td><td class="s5"></td><td dir="ltr" class="s3">e-tag ou last-modified</td><td dir="ltr" class="s3">sim</td></tr><tr dir="ltr"><td class="hd"><p >.</p></td><td dir="ltr" class="s2">Um pagamento</td><td dir="ltr" class="s3">/pagamento/{UUID_pagamento}</td><td dir="ltr" class="s9">put</td><td dir="ltr" class="s3">modifica um pagamento</td><td dir="ltr" class="s3">* a cobrança<br>* o recibo, se houver</td><td dir="ltr" class="s3">só faz sentido o usuário modificar um pagamento que não tenha sido aprovado, estamos então falando de tentativas de pagamento</td><td class="s5"></td><td dir="ltr" class="s3">sim</td></tr><tr dir="ltr"><td class="hd"><p >.</p></td><td dir="ltr" class="s2">Um pagamento</td><td dir="ltr" class="s3">/pagamento/{UUID_pagamento}</td><td dir="ltr" class="s10">delete</td><td dir="ltr" class="s3">apaga um pagamento</td><td dir="ltr" class="s3">* a cobrança<br>* o recibo, se houver</td><td dir="ltr" class="s3">só faz sentido o usuário modificar um pagamento que não tenha sido aprovado, estamos então falando de tentativas de pagamento</td><td class="s5"></td><td dir="ltr" class="s3">sim</td></tr><tr dir="ltr"><td class="hd"><p >.</p></td><td class="s6"></td><td class="s7"></td><td class="s7"></td><td class="s7"></td><td class="s7"></td><td class="s7"></td><td class="s7"></td><td class="s7"></td></tr><tr dir="ltr"><td class="hd"><p >.</p></td><td dir="ltr" class="s2">Recibos</td><td dir="ltr" class="s3">/recibo</td><td dir="ltr" class="s4">get</td><td dir="ltr" class="s3">retorna os recibos</td><td class="s5"></td><td class="s5"></td><td dir="ltr" class="s3">e-tag ou last-modified</td><td dir="ltr" class="s3">sim</td></tr><tr dir="ltr"><td class="hd"><p >.</p></td><td dir="ltr" class="s2">Um recibo</td><td dir="ltr" class="s3">/recibo/{UUID_recibo}</td><td dir="ltr" class="s4">get</td><td dir="ltr" class="s3">retorna um recibo</td><td dir="ltr" class="s3">* a cobrança<br>* o pagamento<br>* o pedido</td><td class="s5"></td><td dir="ltr" class="s3">e-tag ou last-modified</td><td dir="ltr" class="s3">sim</td></tr><tr dir="ltr"><td class="hd"><p >.</p></td><td class="s6"></td><td class="s7"></td><td class="s7"></td><td class="s7"></td><td class="s7"></td><td class="s7"></td><td class="s7"></td><td class="s7"></td></tr></tbody></table>
+
+<table>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+.
+</td>
+<td>recurso</td>
+<td>url</td>
+<td>verbo</td>
+<td>semântica</td>
+<td>links ou recursos embutidos na resposta</td>
+<td>notas</td>
+<td>re: cache</td>
+<td>requer autenticacao, autorizacao?</td>
+</tr>
+<tr>
+<td>
+.
+</td>
+<td>Produtos</td>
+<td>/produto</td>
+<td>get</td>
+<td>a lista de produtos</td>
+<td></td>
+<td></td>
+<td></td>
+<td>amarrar autenticacao em openid ou oauth,<br />autorizar apenas os pedidos do usuario</td>
+</tr>
+<tr>
+<td>
+.
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+.
+</td>
+<td>Um produto</td>
+<td>/produto/\{UUID\_produto\}</td>
+<td>get</td>
+<td>um produto</td>
+<td>\* opcionais<br />\* tamanhos</td>
+<td></td>
+<td>e-tag relativo ao conjunto: produto, opcionais e tamanhos. ou last-modified</td>
+<td>não</td>
+</tr>
+<tr>
+<td>
+.
+</td>
+<td>Tamanhos de um produto</td>
+<td>/produto/\{UUID\_produto\}/tamanhos</td>
+<td>get</td>
+<td>os tamanhos em que um produto está disponível</td>
+<td>\* produto</td>
+<td></td>
+<td>e-tag relativo ao conjunto: produto, opcionais e tamanhos. ou last-modified</td>
+<td>não</td>
+</tr>
+<tr>
+<td>
+.
+</td>
+<td>Opcionais de um produto</td>
+<td>/produto/\{UUID\_produto\}/opcionais</td>
+<td>get</td>
+<td>Os opcionais disponíveis para um produto</td>
+<td>\* produto</td>
+<td></td>
+<td>e-tag relativo ao conjunto: produto, opcionais e tamanhos. ou last-modified</td>
+<td>não</td>
+</tr>
+<tr>
+<td>
+.
+</td>
+<td>Opcionais de um produto</td>
+<td>/produto/\{UUID\_produto\}/opcionais/\{UUID\_opcional\}</td>
+<td>get</td>
+<td>Um opcional disponível para um produto</td>
+<td>\* produto</td>
+<td></td>
+<td>e-tag relativo ao conjunto: produto, opcionais e tamanhos. ou last-modified</td>
+<td>não</td>
+</tr>
+<tr>
+<td>
+.
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+.
+</td>
+<td>Pedidos</td>
+<td>/pedido</td>
+<td>get</td>
+<td>retorna os pedidos</td>
+<td></td>
+<td></td>
+<td></td>
+<td>sim</td>
+</tr>
+<tr>
+<td>
+.
+</td>
+<td>Pedidos</td>
+<td>/pedido</td>
+<td>post</td>
+<td>cria um novo pedido, UUID gerado e informado pelo servidor, put é recomendado apenas se o cliente sempre puder gerar o UUID, não é o caso</td>
+<td></td>
+<td>retorna no header Location: o endereço do pedido criado</td>
+<td></td>
+<td>sim</td>
+</tr>
+<tr>
+<td>
+.
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+.
+</td>
+<td>Um pedido</td>
+<td>/pedido/\{UUID\_pedido\}</td>
+<td>get</td>
+<td>retorna um pedido</td>
+<td>\* Itens de um pedido<br />\* a cobrança<br />\* o recibo ou pagamento</td>
+<td></td>
+<td>usar e-tag ou last-modified</td>
+<td>sim</td>
+</tr>
+<tr>
+<td>
+.
+</td>
+<td>Um pedido</td>
+<td>/pedido/\{UUID\_pedido\}</td>
+<td>put</td>
+<td>modifica um pedido</td>
+<td>\* Itens de um pedido<br />\* a cobrança<br />\* o recibo ou pagamento</td>
+<td>a representação completa do pedido é enviada e recebida</td>
+<td>usar e-tag ou last-modified</td>
+<td>sim</td>
+</tr>
+<tr>
+<td>
+.
+</td>
+<td>Um pedido</td>
+<td>/pedido/\{UUID\_pedido\}</td>
+<td>delete</td>
+<td>apaga um pedido</td>
+<td></td>
+<td></td>
+<td></td>
+<td>sim</td>
+</tr>
+<tr>
+<td>
+.
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+.
+</td>
+<td>Itens em um pedido</td>
+<td>/pedido/\{UUID\_pedido\}/item</td>
+<td>get</td>
+<td>retorna os itens em um pedido</td>
+<td>lista de itens em um pedido</td>
+<td></td>
+<td>usar e-tag ou last-modified</td>
+<td>sim</td>
+</tr>
+<tr>
+<td>
+.
+</td>
+<td>Itens em um pedido</td>
+<td>/pedido/\{UUID\_pedido\}/item</td>
+<td>post</td>
+<td>cria um novo item em um pedido</td>
+<td></td>
+<td>retorna no header Location: o endereço do item criado</td>
+<td></td>
+<td>sim</td>
+</tr>
+<tr>
+<td>
+.
+</td>
+<td>Itens em um pedido</td>
+<td>/pedido/\{UUID\_pedido\}/item</td>
+<td>delete</td>
+<td>remove todos os itens em um pedido</td>
+<td></td>
+<td></td>
+<td></td>
+<td>sim</td>
+</tr>
+<tr>
+<td>
+.
+</td>
+<td>Um item em um pedido</td>
+<td>/pedido/\{UUID\_pedido\}/item/\{UUID\_item\}</td>
+<td>get</td>
+<td>retorna um item em um pedido</td>
+<td>\* o pedido<br />\* o produto<br />\* o tamanho<br />\* os opcionais</td>
+<td>a representação completa do pedido é enviada e recebida</td>
+<td></td>
+<td>sim</td>
+</tr>
+<tr>
+<td>
+.
+</td>
+<td>Um item em um pedido</td>
+<td>/pedido/\{UUID\_pedido\}/item/\{UUID\_item\}</td>
+<td>put</td>
+<td>modifica um item em um pedido</td>
+<td>\* o pedido<br />\* o produto<br />\* o tamanho<br />\* os opcionais</td>
+<td>a representação completa do pedido é enviada e recebida</td>
+<td></td>
+<td>sim</td>
+</tr>
+<tr>
+<td>
+.
+</td>
+<td>Um item em um pedido</td>
+<td>/pedido/\{UUID\_pedido\}/item/\{UUID\_item\}</td>
+<td>delete</td>
+<td>remove um item de um pedido</td>
+<td></td>
+<td></td>
+<td></td>
+<td>sim</td>
+</tr>
+<tr>
+<td>
+.
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+.
+</td>
+<td>As cobranças</td>
+<td>/cobranca</td>
+<td>get</td>
+<td>retorna a lista de cobranças</td>
+<td>\* pagamento ou recibo<br />\* pedido</td>
+<td></td>
+<td>sim, presumindo: imutáveis, sempre válidas.</td>
+<td>sim</td>
+</tr>
+<tr>
+<td>
+.
+</td>
+<td>Uma cobranca</td>
+<td>/cobranca/\{UUID\_cobranca\}</td>
+<td>get</td>
+<td>retorna uma cobrança</td>
+<td></td>
+<td></td>
+<td>sim, presumindo: imutáveis, sempre válidas.</td>
+<td>sim</td>
+</tr>
+<tr>
+<td>
+.
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+.
+</td>
+<td>Pagamentos</td>
+<td>/pagamento</td>
+<td>get</td>
+<td>retorna os pagamentos do usuário</td>
+<td></td>
+<td></td>
+<td></td>
+<td>sim</td>
+</tr>
+<tr>
+<td>
+.
+</td>
+<td>Pagamentos</td>
+<td>/pagamento</td>
+<td>post</td>
+<td>cria um pagamento</td>
+<td>\* a cobrança</td>
+<td>decidir: se o pagamento não for aceito: <br />\* vamos retorna um status de erro agora; ou<br />\* vamos criar o recurso mesmo assim, mas sinalizar isso para o usuário através de alguma propriedade?</td>
+<td></td>
+<td>sim</td>
+</tr>
+<tr>
+<td>
+.
+</td>
+<td>Um pagamento</td>
+<td>/pagamento/\{UUID\_pagamento\}</td>
+<td>get</td>
+<td>retorna um pagamento</td>
+<td>\* a cobrança<br />\* o recibo, se houver</td>
+<td></td>
+<td>e-tag ou last-modified</td>
+<td>sim</td>
+</tr>
+<tr>
+<td>
+.
+</td>
+<td>Um pagamento</td>
+<td>/pagamento/\{UUID\_pagamento\}</td>
+<td>put</td>
+<td>modifica um pagamento</td>
+<td>\* a cobrança<br />\* o recibo, se houver</td>
+<td>só faz sentido o usuário modificar um pagamento que não tenha sido aprovado, estamos então falando de tentativas de pagamento</td>
+<td></td>
+<td>sim</td>
+</tr>
+<tr>
+<td>
+.
+</td>
+<td>Um pagamento</td>
+<td>/pagamento/\{UUID\_pagamento\}</td>
+<td>delete</td>
+<td>apaga um pagamento</td>
+<td>\* a cobrança<br />\* o recibo, se houver</td>
+<td>só faz sentido o usuário modificar um pagamento que não tenha sido aprovado, estamos então falando de tentativas de pagamento</td>
+<td></td>
+<td>sim</td>
+</tr>
+<tr>
+<td>
+.
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+.
+</td>
+<td>Recibos</td>
+<td>/recibo</td>
+<td>get</td>
+<td>retorna os recibos</td>
+<td></td>
+<td></td>
+<td>e-tag ou last-modified</td>
+<td>sim</td>
+</tr>
+<tr>
+<td>
+.
+</td>
+<td>Um recibo</td>
+<td>/recibo/\{UUID\_recibo\}</td>
+<td>get</td>
+<td>retorna um recibo</td>
+<td>\* a cobrança<br />\* o pagamento<br />\* o pedido</td>
+<td></td>
+<td>e-tag ou last-modified</td>
+<td>sim</td>
+</tr>
+<tr>
+<td>
+.
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</table>
 
 
 
