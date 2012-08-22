@@ -50,16 +50,6 @@ Segue uma proposta pra o contrato da nossa API REST:
 
 <table>
 <tr>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
 <td>recurso</td>
 <td>url</td>
 <td>verbo</td>
@@ -91,40 +81,40 @@ Segue uma proposta pra o contrato da nossa API REST:
 </tr>
 <tr>
 <td>Um produto</td>
-<td>/produto/\{UUID\_produto\}</td>
+<td>/produto/{UUID_produto}</td>
 <td>get</td>
 <td>um produto</td>
-<td>\* opcionais<br />\* tamanhos</td>
+<td>* opcionais<br />* tamanhos</td>
 <td></td>
 <td>e-tag relativo ao conjunto: produto, opcionais e tamanhos. ou last-modified</td>
 <td>não</td>
 </tr>
 <tr>
 <td>Tamanhos de um produto</td>
-<td>/produto/\{UUID\_produto\}/tamanhos</td>
+<td>/produto/{UUID_produto}/tamanhos</td>
 <td>get</td>
 <td>os tamanhos em que um produto está disponível</td>
-<td>\* produto</td>
+<td>* produto</td>
 <td></td>
 <td>e-tag relativo ao conjunto: produto, opcionais e tamanhos. ou last-modified</td>
 <td>não</td>
 </tr>
 <tr>
 <td>Opcionais de um produto</td>
-<td>/produto/\{UUID\_produto\}/opcionais</td>
+<td>/produto/{UUID_produto}/opcionais</td>
 <td>get</td>
 <td>Os opcionais disponíveis para um produto</td>
-<td>\* produto</td>
+<td>* produto</td>
 <td></td>
 <td>e-tag relativo ao conjunto: produto, opcionais e tamanhos. ou last-modified</td>
 <td>não</td>
 </tr>
 <tr>
 <td>Opcionais de um produto</td>
-<td>/produto/\{UUID\_produto\}/opcionais/\{UUID\_opcional\}</td>
+<td>/produto/{UUID_produto}/opcionais/{UUID_opcional}</td>
 <td>get</td>
 <td>Um opcional disponível para um produto</td>
-<td>\* produto</td>
+<td>* produto</td>
 <td></td>
 <td>e-tag relativo ao conjunto: produto, opcionais e tamanhos. ou last-modified</td>
 <td>não</td>
@@ -171,27 +161,27 @@ Segue uma proposta pra o contrato da nossa API REST:
 </tr>
 <tr>
 <td>Um pedido</td>
-<td>/pedido/\{UUID\_pedido\}</td>
+<td>/pedido/{UUID_pedido}</td>
 <td>get</td>
 <td>retorna um pedido</td>
-<td>\* Itens de um pedido<br />\* a cobrança<br />\* o recibo ou pagamento</td>
+<td>* Itens de um pedido<br />* a cobrança<br />* o recibo ou pagamento</td>
 <td></td>
 <td>usar e-tag ou last-modified</td>
 <td>sim</td>
 </tr>
 <tr>
 <td>Um pedido</td>
-<td>/pedido/\{UUID\_pedido\}</td>
+<td>/pedido/{UUID_pedido}</td>
 <td>put</td>
 <td>modifica um pedido</td>
-<td>\* Itens de um pedido<br />\* a cobrança<br />\* o recibo ou pagamento</td>
+<td>* Itens de um pedido<br />* a cobrança<br />* o recibo ou pagamento</td>
 <td>a representação completa do pedido é enviada e recebida</td>
 <td>usar e-tag ou last-modified</td>
 <td>sim</td>
 </tr>
 <tr>
 <td>Um pedido</td>
-<td>/pedido/\{UUID\_pedido\}</td>
+<td>/pedido/{UUID_pedido}</td>
 <td>delete</td>
 <td>apaga um pedido</td>
 <td></td>
@@ -211,7 +201,7 @@ Segue uma proposta pra o contrato da nossa API REST:
 </tr>
 <tr>
 <td>Itens em um pedido</td>
-<td>/pedido/\{UUID\_pedido\}/item</td>
+<td>/pedido/{UUID_pedido}/item</td>
 <td>get</td>
 <td>retorna os itens em um pedido</td>
 <td>lista de itens em um pedido</td>
@@ -221,7 +211,7 @@ Segue uma proposta pra o contrato da nossa API REST:
 </tr>
 <tr>
 <td>Itens em um pedido</td>
-<td>/pedido/\{UUID\_pedido\}/item</td>
+<td>/pedido/{UUID_pedido}/item</td>
 <td>post</td>
 <td>cria um novo item em um pedido</td>
 <td></td>
@@ -231,7 +221,7 @@ Segue uma proposta pra o contrato da nossa API REST:
 </tr>
 <tr>
 <td>Itens em um pedido</td>
-<td>/pedido/\{UUID\_pedido\}/item</td>
+<td>/pedido/{UUID_pedido}/item</td>
 <td>delete</td>
 <td>remove todos os itens em um pedido</td>
 <td></td>
@@ -241,27 +231,27 @@ Segue uma proposta pra o contrato da nossa API REST:
 </tr>
 <tr>
 <td>Um item em um pedido</td>
-<td>/pedido/\{UUID\_pedido\}/item/\{UUID\_item\}</td>
+<td>/pedido/{UUID_pedido}/item/{UUID_item}</td>
 <td>get</td>
 <td>retorna um item em um pedido</td>
-<td>\* o pedido<br />\* o produto<br />\* o tamanho<br />\* os opcionais</td>
+<td>* o pedido<br />* o produto<br />* o tamanho<br />* os opcionais</td>
 <td>a representação completa do pedido é enviada e recebida</td>
 <td></td>
 <td>sim</td>
 </tr>
 <tr>
 <td>Um item em um pedido</td>
-<td>/pedido/\{UUID\_pedido\}/item/\{UUID\_item\}</td>
+<td>/pedido/{UUID_pedido}/item/{UUID_item}</td>
 <td>put</td>
 <td>modifica um item em um pedido</td>
-<td>\* o pedido<br />\* o produto<br />\* o tamanho<br />\* os opcionais</td>
+<td>* o pedido<br />* o produto<br />* o tamanho<br />* os opcionais</td>
 <td>a representação completa do pedido é enviada e recebida</td>
 <td></td>
 <td>sim</td>
 </tr>
 <tr>
 <td>Um item em um pedido</td>
-<td>/pedido/\{UUID\_pedido\}/item/\{UUID\_item\}</td>
+<td>/pedido/{UUID_pedido}/item/{UUID_item}</td>
 <td>delete</td>
 <td>remove um item de um pedido</td>
 <td></td>
@@ -284,14 +274,14 @@ Segue uma proposta pra o contrato da nossa API REST:
 <td>/cobranca</td>
 <td>get</td>
 <td>retorna a lista de cobranças</td>
-<td>\* pagamento ou recibo<br />\* pedido</td>
+<td>* pagamento ou recibo<br />* pedido</td>
 <td></td>
 <td>sim, presumindo: imutáveis, sempre válidas.</td>
 <td>sim</td>
 </tr>
 <tr>
 <td>Uma cobranca</td>
-<td>/cobranca/\{UUID\_cobranca\}</td>
+<td>/cobranca/{UUID_cobranca}</td>
 <td>get</td>
 <td>retorna uma cobrança</td>
 <td></td>
@@ -324,37 +314,37 @@ Segue uma proposta pra o contrato da nossa API REST:
 <td>/pagamento</td>
 <td>post</td>
 <td>cria um pagamento</td>
-<td>\* a cobrança</td>
-<td>decidir: se o pagamento não for aceito: <br />\* vamos retorna um status de erro agora; ou<br />\* vamos criar o recurso mesmo assim, mas sinalizar isso para o usuário através de alguma propriedade?</td>
+<td>* a cobrança</td>
+<td>decidir: se o pagamento não for aceito: <br />* vamos retorna um status de erro agora; ou<br />* vamos criar o recurso mesmo assim, mas sinalizar isso para o usuário através de alguma propriedade?</td>
 <td></td>
 <td>sim</td>
 </tr>
 <tr>
 <td>Um pagamento</td>
-<td>/pagamento/\{UUID\_pagamento\}</td>
+<td>/pagamento/{UUID_pagamento}</td>
 <td>get</td>
 <td>retorna um pagamento</td>
-<td>\* a cobrança<br />\* o recibo, se houver</td>
+<td>* a cobrança<br />* o recibo, se houver</td>
 <td></td>
 <td>e-tag ou last-modified</td>
 <td>sim</td>
 </tr>
 <tr>
 <td>Um pagamento</td>
-<td>/pagamento/\{UUID\_pagamento\}</td>
+<td>/pagamento/{UUID_pagamento}</td>
 <td>put</td>
 <td>modifica um pagamento</td>
-<td>\* a cobrança<br />\* o recibo, se houver</td>
+<td>* a cobrança<br />* o recibo, se houver</td>
 <td>só faz sentido o usuário modificar um pagamento que não tenha sido aprovado, estamos então falando de tentativas de pagamento</td>
 <td></td>
 <td>sim</td>
 </tr>
 <tr>
 <td>Um pagamento</td>
-<td>/pagamento/\{UUID\_pagamento\}</td>
+<td>/pagamento/{UUID_pagamento}</td>
 <td>delete</td>
 <td>apaga um pagamento</td>
-<td>\* a cobrança<br />\* o recibo, se houver</td>
+<td>* a cobrança<br />* o recibo, se houver</td>
 <td>só faz sentido o usuário modificar um pagamento que não tenha sido aprovado, estamos então falando de tentativas de pagamento</td>
 <td></td>
 <td>sim</td>
@@ -381,10 +371,10 @@ Segue uma proposta pra o contrato da nossa API REST:
 </tr>
 <tr>
 <td>Um recibo</td>
-<td>/recibo/\{UUID\_recibo\}</td>
+<td>/recibo/{UUID_recibo}</td>
 <td>get</td>
 <td>retorna um recibo</td>
-<td>\* a cobrança<br />\* o pagamento<br />\* o pedido</td>
+<td>* a cobrança<br />* o pagamento<br />* o pedido</td>
 <td></td>
 <td>e-tag ou last-modified</td>
 <td>sim</td>
